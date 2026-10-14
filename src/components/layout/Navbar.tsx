@@ -30,17 +30,14 @@ export function Navbar() {
 
   return (
     <>
-      <motion.header
-        initial={{ opacity: 0, y: -16 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-        className={`fixed top-0 left-0 right-0 z-40 transition-all duration-500 ${
+      <header
+        className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
           isScrolled
-            ? "bg-[#08090B]/85 backdrop-blur-md border-b border-white/[0.06] py-3.5 sm:py-4"
-            : "bg-transparent py-5 sm:py-7"
+            ? "bg-[#08090B]/90 backdrop-blur-md border-b border-white/[0.06] py-3.5 sm:py-4"
+            : "bg-gradient-to-b from-[#08090B]/80 to-transparent py-4 sm:py-6"
         }`}
       >
-        <div className="max-w-7xl mx-auto px-5 sm:px-8 md:px-12 flex items-center justify-between">
+        <div className="w-full max-w-7xl mx-auto px-5 sm:px-8 md:px-12 flex items-center justify-between">
           {/* Brand */}
           <Link
             href="/"
@@ -91,7 +88,7 @@ export function Navbar() {
             </button>
           </div>
         </div>
-      </motion.header>
+      </header>
 
       {/* Mobile Menu Overlay */}
       <AnimatePresence>
