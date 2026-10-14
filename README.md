@@ -1,101 +1,91 @@
-# Rutvik Bhil — Personal Portfolio & SaaS Showcase
+# Rutvik Bhil — Personal Developer Portfolio
 
-A high-performance personal portfolio and SaaS product showcase for **Rutvik Bhil** (Full-Stack Developer & SaaS Builder), engineered to convert both recruiters hiring for full-time engineering roles and founders/clients seeking freelance SaaS builds.
+> **"Developer by skills. Explorer by nature."**
 
----
-
-## ⚡ Tech Stack
-
-- **Framework**: Next.js 14+ / Next.js 16 (App Router, TypeScript, React 19)
-- **Styling**: Tailwind CSS with custom design system tokens & dark/light mode (`next-themes`)
-- **Animations**:
-  - **GSAP**: "Reaching the Summit" mountain ascent loader with real-time SVG line-draw & climber beacon
-  - **Framer Motion**: Scroll reveals, staggered typography, interactive state transitions, card physics
-- **Smooth Scrolling**: Lenis (`lenis`) with prefers-reduced-motion fallback
-- **Icons**: Lucide React
-- **Typography**: Space Grotesk (display/headings) + Inter (body/UI) via `next/font/google`
-- **Forms**: React Hook Form + Zod validation with dual-audience toggle (Hiring vs Project) & API route
-- **Deployment**: Vercel ready
+An award-winning editorial personal portfolio website engineered for **Rutvik Bhil** (Full-Stack JavaScript Developer / React & Next.js Developer). Built with an editorial, cinematic, dark aesthetic inspired by modern creative craftsmanship, featuring Rutvik's authentic Kedarkantha summit photograph and narrative, verifiable production client projects, and an accurate career timeline.
 
 ---
 
-## 🏔️ The Signature Loading Screen: "Reaching the Summit"
+## 🏔️ Design Direction & Aesthetic
 
-The loading screen represents a mountain ascent inspired by Rutvik's climb of **Kedarkantha Peak (12,500 ft, India)**:
-1. **Mountain Silhouette**: An SVG mountain line draws itself from left to right using stroke-dashoffset animation synced via GSAP.
-2. **Climber Beacon**: A luminous marker tracks continuously along the line's current tip.
-3. **Themed Status Texts**: Cycles from *"Packing gear"* (0-25%), *"Gaining altitude"* (25-50%), *"Almost at the snowline ridge"* (50-75%), to *"Summit in sight (12,500 ft)"* and *"Summit reached"*.
-4. **Summit Opening**: Once reaching 100%, the loader scales out while the hero content slides in like the sky opening up from the summit.
-5. **Session Memory**: Uses `sessionStorage` so the full experience plays once per session, followed by fast entrances on page revisits.
-6. **Accessibility**: Fully respects `prefers-reduced-motion`.
+- **Theme**: Dark editorial palette (`#08090B` near-black background, `#111317` deep charcoal, `#F5F4F0` warm white typography, `#A3A6AD` muted grey, and `#91B9F5` alpine-sky accent).
+- **Hero Photography**: Authentic high-resolution photograph of Rutvik Bhil on the summit of **Kedarkantha Peak (12,500 ft, Uttarakhand, India)** at sunrise with subtle cinematic overlays and restrained parallax.
+- **Typography**: Fluid type system via `next/font/google`:
+  - `DM Sans` for display headlines
+  - `Manrope` for body and interface elements
+  - `Instrument Serif` (italic) for poetic accents and visual signatures
+- **Motion & Interaction**:
+  - `Framer Motion`: Fluid entrance choreography, masked text reveals, interactive project card physics, and smooth chapter switching.
+  - `Lenis`: Butter-smooth inertia scrolling with automatic `prefers-reduced-motion` compliance.
 
 ---
 
-## 📁 Project Structure
+## 📁 Project Architecture
 
 ```
-src/
-├── app/
-│   ├── api/contact/route.ts   # Contact API endpoint with Zod validation
-│   ├── crisptable/page.tsx    # Dedicated CrispTable SaaS showcase & architecture deep-dive
-│   ├── work/[slug]/page.tsx   # Dynamic case study template with static params
-│   ├── globals.css            # Custom CSS tokens & typography
-│   ├── layout.tsx             # Root layout with fonts, ThemeProvider & Lenis
-│   ├── page.tsx               # Main portfolio landing page
-│   ├── robots.ts              # SEO robots config
-│   └── sitemap.ts             # Dynamic XML sitemap generator
-├── components/
-│   ├── layout/
-│   │   ├── Footer.tsx         # Site footer with quick links & socials
-│   │   └── Navbar.tsx         # Fixed hide-on-scroll navigation & mobile menu
-│   ├── loader/
-│   │   └── SummitLoader.tsx   # Signature GSAP Mountain Ascent Loader
-│   ├── providers/
-│   │   ├── SmoothScroll.tsx   # Lenis wrapper with reduced-motion check
-│   │   └── ThemeProvider.tsx  # Next-themes dark/light mode provider
-│   ├── sections/
-│   │   ├── AboutMe.tsx        # Story connecting Kedarkantha trekking to software discipline
-│   │   ├── Contact.tsx        # Dual-mode Zod validated contact form
-│   │   ├── CrispTableSpotlight.tsx # Interactive SaaS simulator & overview
-│   │   ├── Experience.tsx     # Career timeline & resume PDF download
-│   │   ├── FeaturedWork.tsx   # Projects showcase & category filters
-│   │   ├── Hero.tsx           # Staggered typography, dual CTAs, mountain motif
-│   │   ├── Services.tsx       # Freelance offerings & 4-step workflow
-│   │   ├── Skills.tsx         # Categorized tech matrix with hover effects
-│   │   ├── StatsBar.tsx       # Animated metrics counter
-│   │   └── Testimonials.tsx   # Colleague & client recommendations
-│   └── ui/
-│       ├── Button.tsx         # Micro-animated button with motion effects
-│       ├── ProjectCard.tsx    # Interactive project card with flagship layout
-│       └── ThemeToggle.tsx    # Smooth dark/light switcher
-├── data/
-│   ├── experience.ts          # Work history & personal info
-│   ├── projects.ts            # Project data, case studies, & placeholders
-│   ├── services.ts            # Freelance services, 4-step process, testimonials
-│   └── skills.ts              # Categorized tech stack data
-├── lib/
-│   ├── utils.ts               # Class merging utilities
-│   └── validation.ts          # Zod schemas for contact form
-└── types/
-    └── index.ts               # Shared TypeScript interfaces
+portfolio/
+├── public/
+│   ├── images/
+│   │   ├── kedarkantha-summit.jpg    # Authentic summit photograph (12,500 ft)
+│   │   └── projects/
+│   │       ├── iksafar.png           # Live screenshot (https://iksafar.in/)
+│   │       ├── valleyview.png        # Live screenshot (https://valleyviewhomestay.com/)
+│   │       ├── simplifyte.png        # Live screenshot (https://simplifyte.com/)
+│   │       ├── premium-cafe.png      # Live screenshot (https://premium-cafe-tawny.vercel.app/)
+│   │       └── bridal-makeup.png     # Live screenshot (https://vasudha-arora-bridal.vercel.app/)
+│   └── resume.pdf                    # Rutvik Bhil's official PDF resume
+├── src/
+│   ├── app/
+│   │   ├── api/contact/route.ts      # Contact endpoint with Zod validation
+│   │   ├── globals.css               # Design system tokens, fluid scales & sliding underline
+│   │   ├── layout.tsx                # App root with Google Fonts, SEO metadata & OpenGraph
+│   │   ├── page.tsx                  # Landing page assembling all editorial sections
+│   │   ├── robots.ts                 # SEO robots configuration
+│   │   └── sitemap.ts                # XML Sitemap generator
+│   ├── components/
+│   │   ├── layout/
+│   │   │   ├── Navbar.tsx            # Minimalist transparent header with mobile sheet
+│   │   │   └── Footer.tsx            # Quiet minimal footer with back-to-top action
+│   │   ├── providers/
+│   │   │   └── SmoothScroll.tsx      # Lenis smooth-scroll wrapper
+│   │   ├── sections/
+│   │   │   ├── Hero.tsx              # Full-screen Kedarkantha hero with story & dual CTAs
+│   │   │   ├── About.tsx             # Philosophy, introduction, and verified personal facts
+│   │   │   ├── StorySection.tsx      # 3-chapter Kedarkantha ascent (Struggle, Climb, Sunrise)
+│   │   │   ├── Projects.tsx          # Editorial project showcase with live previews & filters
+│   │   │   ├── Experience.tsx        # Verifiable career timeline & computer engineering degree
+│   │   │   ├── TechStack.tsx         # Categorized JavaScript toolkit (no fake percentages)
+│   │   │   └── Contact.tsx           # Emotional closing section, direct links & message form
+│   │   └── ui/
+│   │       ├── Icons.tsx             # Custom SVG icons (GitHub, LinkedIn)
+│   │       ├── ProjectCard.tsx       # Aspect-ratio project preview with status badges & tags
+│   │       └── SectionHeading.tsx    # Reusable tracked label & fluid headline component
+│   ├── data/
+│   │   ├── site.ts                   # Centralized configuration (name, role, contacts, URLs)
+│   │   ├── projects.ts               # Accurate projects catalog
+│   │   ├── experience.ts             # Professional career history & education
+│   │   └── skills.ts                 # Categorized technical toolkit
+│   └── lib/
+│       ├── utils.ts                  # Utility class merging
+│       └── validation.ts             # Zod schema validation
 ```
 
 ---
 
-## 🛠️ Getting Started Locally
+## ⚡ Getting Started Locally
 
-### 1. Install dependencies
 ```bash
-npm install
-```
+# 1. Navigate to the project directory
+cd /Users/vishalbhil/.gemini/antigravity-ide/scratch/portfolio
 
-### 2. Run the development server
-```bash
+# 2. Run the development server
 npm run dev
-```
-Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-### 3. Build for production
+# Open http://localhost:3000 in your browser.
+```
+
+### Production Build
+
 ```bash
 npm run build
 npm run start
@@ -103,9 +93,10 @@ npm run start
 
 ---
 
-## ✏️ Content Placeholders to Customize
+## ⚙️ Updating Content & Links
 
-All core content and links are cleanly separated in `src/data/`:
-- `src/data/experience.ts`: Edit `personalInfo` (`email`, `github`, `linkedin`, `resumeUrl`, `trekHighlight`).
-- `src/data/projects.ts`: Swap `[WEBSITE_1_NAME]`, `[WEBSITE_1_URL]`, `[WEBSITE_1_DESCRIPTION]`, `[WEBSITE_2_NAME]`, etc.
-- `src/components/sections/AboutMe.tsx`: Replace `[TREK_PHOTO]` with your photo from Kedarkantha.
+All personal details, URLs, and social profiles are maintained in a single configuration file:
+- **`src/data/site.ts`**: Edit name, email, phone, LinkedIn, GitHub, and story copy.
+- **`src/data/projects.ts`**: Add or modify portfolio projects, descriptions, and live URLs.
+- **`src/data/experience.ts`**: Update work history or education credentials.
+- **`public/resume.pdf`**: Drop in any newly updated PDF resume to automatically update the download button across the site.
