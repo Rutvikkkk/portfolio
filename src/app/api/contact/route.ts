@@ -2,11 +2,13 @@ import { NextResponse } from "next/server";
 import { Resend } from "resend";
 import { directMessageSchema } from "@/lib/validation";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-const toEmail = process.env.CONTACT_TO_EMAIL || "rutvikbhil008@gmail.com";
+export const dynamic = "force-dynamic";
 
 export async function POST(req: Request) {
   try {
+    const apiKey = process.env.RESEND_API_KEY;
+    const toEmail = process.env.CONTACT_TO_EMAIL || "rutvikbhil008@gmail.com";
+
     const body = await req.json();
     const result = directMessageSchema.safeParse(body);
 
@@ -18,6 +20,17 @@ export async function POST(req: Request) {
     }
 
     const data = result.data;
+
+    // Graceful check if API key is not configured in production environment
+    if (!apiKey) {
+      console.warn("RESEND_API_KEY is not configured.");
+      return NextResponse.json(
+        { error: "Email service not configured. Falling back to direct email." },
+        { status: 503 }
+      );
+    }
+
+    const resend = new Resend(apiKey);
 
     // Send email using Resend
     const { data: emailData, error: emailError } = await resend.emails.send({
