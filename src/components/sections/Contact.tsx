@@ -2,8 +2,8 @@
 
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { Mail, Phone, ArrowUpRight, Send, CheckCircle2, FileText, Sparkles } from "lucide-react";
-import { GithubIcon, LinkedinIcon } from "@/components/ui/Icons";
+import { Mail, ArrowUpRight, Send, CheckCircle2, FileText, Sparkles } from "lucide-react";
+import { WhatsappIcon } from "@/components/ui/Icons";
 import { siteConfig } from "@/data/site";
 
 export function Contact() {
@@ -146,7 +146,7 @@ export function Contact() {
               </a>
             </motion.div>
 
-            {/* Direct Contact Links Grid */}
+            {/* Direct Contact Links: Only Email and WhatsApp */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -166,56 +166,24 @@ export function Contact() {
                     {siteConfig.email}
                   </span>
                 </div>
-                <Mail className="w-4 h-4 text-white/40 group-hover:text-[#91B9F5] transition-colors" />
+                <Mail className="w-4 h-4 text-white/40 group-hover:text-[#91B9F5] transition-colors shrink-0" />
               </a>
 
               <a
-                href={siteConfig.linkedin}
+                href={`https://wa.me/919723962344?text=${encodeURIComponent("Hi Rutvik, I came across your portfolio and would like to connect!")}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-4 rounded-lg bg-[#111317]/50 border border-white/[0.05] hover:border-white/15 transition-colors group flex items-center justify-between"
               >
                 <div className="space-y-0.5">
                   <span className="text-[10px] font-mono uppercase tracking-wider text-[#A3A6AD] block">
-                    LinkedIn
+                    WhatsApp
                   </span>
-                  <span className="text-xs sm:text-sm font-mono text-[#F5F4F0] group-hover:text-[#91B9F5] transition-colors">
-                    /in/rutvik-bhil
-                  </span>
-                </div>
-                <LinkedinIcon className="w-4 h-4 text-white/40 group-hover:text-[#91B9F5] transition-colors" />
-              </a>
-
-              <a
-                href={siteConfig.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-4 rounded-lg bg-[#111317]/50 border border-white/[0.05] hover:border-white/15 transition-colors group flex items-center justify-between"
-              >
-                <div className="space-y-0.5">
-                  <span className="text-[10px] font-mono uppercase tracking-wider text-[#A3A6AD] block">
-                    GitHub
-                  </span>
-                  <span className="text-xs sm:text-sm font-mono text-[#F5F4F0] group-hover:text-[#91B9F5] transition-colors">
-                    github.com/Rutvikkkk
-                  </span>
-                </div>
-                <GithubIcon className="w-4 h-4 text-white/40 group-hover:text-[#91B9F5] transition-colors" />
-              </a>
-
-              <a
-                href={`tel:${siteConfig.phone.replace(/\s+/g, "")}`}
-                className="p-4 rounded-lg bg-[#111317]/50 border border-white/[0.05] hover:border-white/15 transition-colors group flex items-center justify-between"
-              >
-                <div className="space-y-0.5">
-                  <span className="text-[10px] font-mono uppercase tracking-wider text-[#A3A6AD] block">
-                    Phone / WhatsApp
-                  </span>
-                  <span className="text-xs sm:text-sm font-mono text-[#F5F4F0] group-hover:text-[#91B9F5] transition-colors">
+                  <span className="text-xs sm:text-sm font-mono text-[#F5F4F0] group-hover:text-emerald-400 transition-colors">
                     {siteConfig.phone}
                   </span>
                 </div>
-                <Phone className="w-4 h-4 text-white/40 group-hover:text-[#91B9F5] transition-colors" />
+                <WhatsappIcon className="w-4 h-4 text-white/40 group-hover:text-emerald-400 transition-colors shrink-0" />
               </a>
             </motion.div>
           </div>
