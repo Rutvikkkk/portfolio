@@ -21,7 +21,6 @@ export function Navbar() {
 
   const navLinks = [
     { label: "About", href: "#about" },
-    { label: "Story", href: "#story" },
     { label: "Projects", href: "#projects" },
     { label: "Experience", href: "#experience" },
     { label: "Toolkit", href: "#toolkit" },
@@ -38,19 +37,24 @@ export function Navbar() {
         }`}
       >
         <div className="w-full max-w-7xl mx-auto px-5 sm:px-8 md:px-12 flex items-center justify-between">
-          {/* Brand */}
-          <Link
-            href="/"
-            className="group flex items-center gap-3 text-[#F5F4F0] transition-colors"
+          {/* Brand: Clicking smoothly scrolls to hero */}
+          <a
+            href="#hero"
+            onClick={(e) => {
+              e.preventDefault();
+              const hero = document.getElementById("hero");
+              if (hero) {
+                hero.scrollIntoView({ behavior: "smooth" });
+              } else {
+                window.scrollTo({ top: 0, behavior: "smooth" });
+              }
+            }}
+            className="group flex items-center gap-3 text-[#F5F4F0] transition-colors cursor-pointer"
           >
             <span className="font-display font-medium text-base sm:text-lg tracking-tight hover-underline">
               {siteConfig.name}
             </span>
-            <span className="hidden sm:inline-block w-1.5 h-1.5 rounded-full bg-[#91B9F5]/70" />
-            <span className="hidden md:inline-block text-[11px] font-mono tracking-wider uppercase text-[#A3A6AD]/75">
-              Full-Stack Developer
-            </span>
-          </Link>
+          </a>
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center gap-8 text-xs font-medium tracking-wide uppercase text-[#A3A6AD]">

@@ -34,21 +34,7 @@ export function ProjectCard({ project, priority = false }: ProjectCardProps) {
         {/* Subtle Dark Vignette & Gradient for Editorial Consistency */}
         <div className="absolute inset-0 bg-gradient-to-t from-[#0D0F12] via-transparent to-transparent opacity-80" />
 
-        {/* Top Badges */}
-        <div className="absolute top-4 left-4 right-4 flex justify-between items-center text-[10px] font-mono tracking-widest uppercase pointer-events-none">
-          <span className="px-2.5 py-1 rounded bg-[#08090B]/85 backdrop-blur-md border border-white/10 text-[#91B9F5]">
-            PROJ {project.number}
-          </span>
-          {project.isDemo ? (
-            <span className="px-2.5 py-1 rounded bg-amber-500/15 backdrop-blur-md border border-amber-500/30 text-amber-300">
-              Concept Demo
-            </span>
-          ) : (
-            <span className="px-2.5 py-1 rounded bg-emerald-500/15 backdrop-blur-md border border-emerald-500/30 text-emerald-300">
-              Live Production
-            </span>
-          )}
-        </div>
+
       </div>
 
       {/* Card Content & Details */}

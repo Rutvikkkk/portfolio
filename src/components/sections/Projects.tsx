@@ -32,39 +32,42 @@ export function Projects() {
           />
 
           {/* Restrained Filter Tabs */}
-          <div className="flex items-center gap-2 p-1 rounded-full bg-[#111317] border border-white/[0.08] text-xs font-mono tracking-wider uppercase">
+          <div className="flex items-center gap-1.5 p-1 rounded-full bg-[#111317] border border-white/[0.08] text-xs font-mono tracking-wider uppercase">
             <button
               type="button"
               onClick={() => setFilter("all")}
-              className={`px-4 py-1.5 rounded-full transition-colors ${
+              className={`inline-flex items-center gap-1.5 px-3.5 sm:px-4 py-1.5 rounded-full transition-colors whitespace-nowrap ${
                 filter === "all"
-                  ? "bg-[#91B9F5] text-[#08090B] font-medium"
-                  : "text-[#A3A6AD] hover:text-[#F5F4F0]"
+                  ? "bg-[#67B7FF] text-[#080B10] font-medium"
+                  : "text-[#A3A6AD] hover:text-[#F5F7FA]"
               }`}
             >
-              All ({projects.length})
+              <span>All</span>
+              <span>({projects.length})</span>
             </button>
             <button
               type="button"
               onClick={() => setFilter("production")}
-              className={`px-4 py-1.5 rounded-full transition-colors ${
+              className={`inline-flex items-center gap-1.5 px-3.5 sm:px-4 py-1.5 rounded-full transition-colors whitespace-nowrap ${
                 filter === "production"
-                  ? "bg-[#91B9F5] text-[#08090B] font-medium"
-                  : "text-[#A3A6AD] hover:text-[#F5F4F0]"
+                  ? "bg-[#67B7FF] text-[#080B10] font-medium"
+                  : "text-[#A3A6AD] hover:text-[#F5F7FA]"
               }`}
             >
-              Live Work (3)
+              <span>Live Work</span>
+              <span>({projects.filter((p) => !p.isDemo).length})</span>
             </button>
             <button
               type="button"
               onClick={() => setFilter("concepts")}
-              className={`px-4 py-1.5 rounded-full transition-colors ${
+              className={`inline-flex items-center gap-1.5 px-3.5 sm:px-4 py-1.5 rounded-full transition-colors whitespace-nowrap ${
                 filter === "concepts"
-                  ? "bg-[#91B9F5] text-[#08090B] font-medium"
-                  : "text-[#A3A6AD] hover:text-[#F5F4F0]"
+                  ? "bg-[#67B7FF] text-[#080B10] font-medium"
+                  : "text-[#A3A6AD] hover:text-[#F5F7FA]"
               }`}
             >
-              Concepts (2)
+              <span>Concepts</span>
+              <span>({projects.filter((p) => p.isDemo).length})</span>
             </button>
           </div>
         </div>
