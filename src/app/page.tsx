@@ -19,7 +19,7 @@ export default function Home() {
       <About />
 
       {/* SCROLL-DRIVEN PERSONAL STORY (KEDARKANTHA CHAPTERS) */}
-      <StorySection />
+      {/* <StorySection /> */}
 
       {/* SECTION 3 — SELECTED WORK */}
       <Projects />
